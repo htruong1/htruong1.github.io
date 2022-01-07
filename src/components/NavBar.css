@@ -1,0 +1,16 @@
+.navbar {
+    background-color: #1F2833;
+}
+
+.hamburglar {
+    height: 0.2rem; 
+    margin-bottom: 0.25rem;
+}
+
+.dropdown-menu {
+    height: calc(100vh - 68px)
+}
+
+.menu-button_border:not(:last-child) {
+    box-shadow:  0 2px 2px -2px gray;
+}
