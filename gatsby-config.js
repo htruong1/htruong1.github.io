@@ -1,4 +1,5 @@
 module.exports = {
+    pathPrefix: "/htruong1.github.io",
     plugins: [
         'gatsby-plugin-postcss', 
     {
