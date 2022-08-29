@@ -58,5 +58,8 @@ module.exports = {
             //     link: '/contact'
             // }
         ]
-    }
+    },
+    flags: {
+        PARALLEL_QUERY_RUNNING: true
+      }
 }
