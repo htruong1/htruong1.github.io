@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkblackhole_eats=self.webpackChunkblackhole_eats||[]).push([[501],{262:function(e,l,n){n.r(l);var t=n(7294),a=n(7080);l.default=function(){return t.createElement(a.P,null,"Find me here")}}}]);
+//# sourceMappingURL=component---src-pages-contact-js-18d33d7092d7ae0cc3df.js.map

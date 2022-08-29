@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-blog-js",
+    "path": "/blog/",
+    "result": {"data":{"allMdx":{"nodes":[{"frontmatter":{"date":"July 23, 2021","title":"Sushi Shoyu","description":"A new sushi restaurant that opened up on 109 st in downtown!"},"id":"20734753-9942-56ad-840a-442d7a0df710","slug":"sushishoyu/"},{"frontmatter":{"date":"January 8, 2021","title":"My First Post","description":"First post! Poggers"},"id":"3218212c-d712-5a2e-a71d-7bb25f5cda0b","slug":"firstpost/"}]}},"pageContext":{}},
+    "staticQueryHashes": []}
