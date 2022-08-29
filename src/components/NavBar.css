@@ -1,5 +1,9 @@
 .navbar {
-    background-color: #1F2833;
+    /* background-color: #1F2833; */
+    /* background-color: #0c7290; */
+    /* background-color: rgba(11, 12, 16); */
+    background-color: #0b4c60;
+
 }
 
 .hamburglar {
@@ -8,7 +12,8 @@
 }
 
 .dropdown-menu {
-    height: calc(100vh - 68px)
+    /* height: calc(100vh - 200px) */
+    height: 100vh;
 }
 
 .menu-button_border:not(:last-child) {

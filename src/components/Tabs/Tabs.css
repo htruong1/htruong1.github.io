@@ -1,0 +1,10 @@
+.tabs-button {
+    background-color: #3b6f7f;
+    color: #b5c9cf;
+}
+
+button:hover {
+    background-color: #3b6f7f;
+    color: #b5c9cf;
+    transition: background-color 0.75s, color 0.75s;
+}

@@ -1,21 +1,53 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { PageTemplate } from './../components/PageTemplate';
+import { BlogCard } from '../components/Card';
 
-const Blog = ({}) => {
+const Blog = ({data}) => {
+  
+  const {allMdx: {
+    nodes
+    }
+  } = data;
+  console.log(nodes)
   return (
     <PageTemplate>
-      Hello
+    <title>Blog</title>
+    <div className="flex flex-col items-center p-4 w-full">
+      <h1 className="text-4xl text-white">Blog Posts</h1>
+      <p className="p-4 text-center">Here you can find an archive of my blog posts.</p>
+      <ul className="flex flex-wrap sm:flex-row flex-col ">
+      {
+        nodes.map(node => (
+          <li className="p-2" key={node.id}>
+            <Link to={`/blog/${node.slug}`}>
+              <BlogCard description={node.frontmatter.description} title={node.frontmatter.title} date={node.frontmatter.date}/>
+            </Link>
+          </li>
+        ))
+      }
+      </ul>
+      </div>
     </PageTemplate>
+
   )
 }
 
 export const query = graphql`
-  query BlogPosts($title: String) {
-    mdx(title: {eq: $title}) {
-      title
+  query BlogQuery {
+    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM D, YYYY")
+          title
+          description
+        }
+        id
+        slug
+      }
     }
   }
 `
+
 
 export default Blog

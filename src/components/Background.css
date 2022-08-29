@@ -1,7 +1,13 @@
-.background {
+body {
   /* width: 100%;
     object-fit: cover;
     background-image: url('../images/rainy.jpg');
     background-size: cover; */
-  background-color: rgba(11, 12, 16);
+  /* background-color: rgba(11, 12, 16); */
+  /* background-color: #2596be; */
+  background-color: #0b4c60;
+}
+
+.activity-container {
+  background-color: rgba(11, 12, 16, 0.5);
 }

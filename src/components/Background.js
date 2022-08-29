@@ -3,7 +3,7 @@ import './Background.css'
 
 const Background = ({children, className}) => {
     return (
-        <div className={`${className} background pt-8 sm:t-0`}>
+        <div className={`${className} background sm:t-0`}>
             {children}
         </div>
     )
