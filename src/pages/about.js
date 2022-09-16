@@ -10,7 +10,7 @@ const About = () => {
     // console.log(location, '###')
 
     return (
-        // <PageTemplate className="flex justify-center">
+        <PageTemplate className="flex justify-center">
             <div style={{
                 "background": "2596be"
             }} className="p-8 text-center flex flex-col justify-center items-center">
@@ -59,7 +59,7 @@ const About = () => {
                     </p>
                 </div>
             </div>
-        // </PageTemplate>
+         </PageTemplate>
     )
 }   
 

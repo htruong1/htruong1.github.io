@@ -20,7 +20,7 @@ const Blog = ({data}) => {
       {
         nodes.map(node => (
           <li className="p-2" key={node.id}>
-            <Link to={`/blog/${node.slug}`}>
+            <Link to={`/blog/${node.frontmatter.slug}`}>
               <BlogCard description={node.frontmatter.description} title={node.frontmatter.title} date={node.frontmatter.date}/>
             </Link>
           </li>
@@ -33,21 +33,21 @@ const Blog = ({data}) => {
   )
 }
 
-export const query = graphql`
-  query BlogQuery {
-    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
-      nodes {
-        frontmatter {
-          date(formatString: "MMMM D, YYYY")
-          title
-          description
-        }
-        id
-        slug
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query BlogQuery {
+//     allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+//       nodes {
+//         id
+//         frontmatter {
+//           date(formatString: "MMMM D, YYYY")
+//           title
+//           description
+//           slug
+//         }
+//       }
+//     }
+//   }
+// `
 
 
 export default Blog

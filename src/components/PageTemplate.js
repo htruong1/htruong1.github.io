@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import Background from './Background'
 import NavBar from './NavBar'
-import { IconButton } from '../components/IconButton';
+// import { a } from '../components/a';
 import SvgIcon from '@mui/material/SvgIcon';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -43,27 +43,27 @@ export function PageTemplate({children, className}) {
                 {children}
             </Background>
             <div className="flex py-2 text-white justify-center">
-                <IconButton>
+                <a href="https://github.com/htruong1" target="_blank" className="p-4">
                   <SvgIcon
                     fontSize="large"
                   >
                     <GitHubIcon/>
                   </SvgIcon>
-                </IconButton>
-                <IconButton>
+                </a>
+                <a href="https://www.instagram.com/forever_wei_ting/" target="_blank" className="p-4">
                   <SvgIcon
                       fontSize="large"
                     >
                       <InstagramIcon/>
                     </SvgIcon>
-                </IconButton>
-                <IconButton>
+                </a>
+                <a href="https://www.linkedin.com/in/htruong1/" target="_blank" className="p-4">
                 <SvgIcon
                     fontSize="large"
                   >
                     <LinkedInIcon/>
                   </SvgIcon>
-                </IconButton>
+                </a>
               </div>
             </>)}
       </main>

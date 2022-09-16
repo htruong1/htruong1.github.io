@@ -44,13 +44,13 @@ export const query = graphql`
   query LandingPageQuery {
     allMdx(limit:3 ,sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
+        id
         frontmatter {
           date(formatString: "MMMM D, YYYY")
           title
           description
+          slug
         }
-        id
-        slug
       }
     }
   }

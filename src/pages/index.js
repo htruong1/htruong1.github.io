@@ -1,18 +1,10 @@
 import * as React from "react"
 import './index.css'
 
-import { StaticImage } from "gatsby-plugin-image";
-import Background from '../components/Background';
 import { PageTemplate } from './../components/PageTemplate';
 import { BlogCard } from '../components/Card';
 import { graphql, Link } from 'gatsby'
-import { IconButton } from '../components/IconButton';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import About from './about';
-import LandingPage from './landingpage';
-import Blog from './blog';
+
 
 function HeartBeat() {
   return (
@@ -44,7 +36,6 @@ const IndexPage = ({ data}) => {
         nodes
         }
       } = data;
-
   return (
   (       <PageTemplate className="flex flex-col items-center justify-center">
             <div className="flex md:flex-row flex-col-reverse sm:flex-col justify-center items-center px-8 index-text-container">
@@ -60,8 +51,8 @@ const IndexPage = ({ data}) => {
                 </p>
               </div>
             </div>
-            <About/>
-            <h1 className="text-white text-4xl font-thin text-center">What's New</h1>
+            {/* <About/> */}
+            {/* <h1 className="text-white text-4xl font-thin text-center">What's New</h1>
             <div className="p-4 items-center mt-4 rounded-xl flex-col flex sm:flex-row w-fit">
               {
               nodes.map(node => (
@@ -72,7 +63,7 @@ const IndexPage = ({ data}) => {
               </li>
               ))
           }
-          </div>
+          </div> */}
       </PageTemplate>)
     
   )
@@ -86,9 +77,9 @@ export const query = graphql`
           date(formatString: "MMMM D, YYYY")
           title
           description
+          slug
         }
         id
-        slug
       }
     }
   }

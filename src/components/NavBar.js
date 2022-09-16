@@ -92,8 +92,9 @@ const NavBar = ({currentTab}) => {
                 <h2 className="text-4xl text-white">Henry Truong</h2>
                     <div className="flex">
                     <NavLink route="">Home</NavLink>
+                    <NavLink route="about">About</NavLink>
                     <NavLink route="portfolio">Portfolio</NavLink>
-                    <NavLink route="blog">Blog</NavLink>
+                    {/* <NavLink route="blog">Blog</NavLink> */}
                 </div>
             </ul>
         </div>
