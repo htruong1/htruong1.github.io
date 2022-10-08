@@ -47,7 +47,7 @@ const IndexPage = ({ data}) => {
 
   return (
   (       <PageTemplate className="flex flex-col items-center justify-center">
-            <div className="flex md:flex-row flex-col-reverse sm:flex-col justify-center items-center px-8 index-text-container">
+            <div className="flex md:flex-row flex-col-reverse sm:flex-col justify-center items-center px-8 h-screen">
               <div className="text-white p-4 w-3/4 text-leftc fade-in-text">
                 <h1 className="text-white text-6xl font-thin pb-4 font-bold">Hi There</h1>
                 <p className="text-2xl">
@@ -60,18 +60,22 @@ const IndexPage = ({ data}) => {
                 </p>
               </div>
             </div>
-            <About/>
-            <h1 className="text-white text-4xl font-thin text-center">What's New</h1>
-            <div className="p-4 items-center mt-4 rounded-xl flex-col flex sm:flex-row w-fit">
-              {
-              nodes.map(node => (
-              <li className="py-2 sm:px-1 list-none w-fit" key={node.id}>
-                  <Link className="no-underline text-black" to={`/blog/${node.slug}`}>
-                  <BlogCard description={node.frontmatter.description} title={node.frontmatter.title} date={node.frontmatter.date}/>
-                  </Link>
-              </li>
-              ))
-          }
+            <div className="h-screen">
+              <About/>
+            </div>
+            <div className="h-screen">
+              <h1 className="text-white text-4xl font-thin text-center">What's New</h1>
+              <div className="p-4 items-center mt-4 rounded-xl flex-col flex sm:flex-row w-fit">
+                {
+                nodes.map(node => (
+                <li className="py-2 sm:px-1 list-none w-fit" key={node.id}>
+                    <Link className="no-underline text-black" to={`/blog/${node.slug}`}>
+                    <BlogCard description={node.frontmatter.description} title={node.frontmatter.title} date={node.frontmatter.date}/>
+                    </Link>
+                </li>
+                ))
+            }
+            </div>
           </div>
       </PageTemplate>)
     
