@@ -36,7 +36,8 @@
     "inspirational-quotes": "^2.0.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.1",
-    "tailwindcss": "^3.0.11"
+    "tailwindcss": "^3.0.11",
+    "underscore": "^1.13.6"
   },
   "devDependencies": {
     "gh-pages": "^4.0.0"

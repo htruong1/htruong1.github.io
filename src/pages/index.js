@@ -13,6 +13,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import About from './about';
 import LandingPage from './landingpage';
 import Blog from './blog';
+import {throttle} from 'underscore';
 
 function HeartBeat() {
   return (
@@ -39,7 +40,79 @@ const pageStyles = {
   minHeight: "100vh"
 }
 
+const sections = {
+  INDEX: 'index',
+  ABOUT: 'about',
+  BLOG: 'blog'
+}
+
 const IndexPage = ({ data}) => {
+    const [currentSection, setCurrentSection] = React.useState(sections.INDEX);
+    const [currentScrollPos, setCurrentScrollPos] = React.useState(window.pageYOffset);
+
+    const indexRef = React.useRef();
+    const aboutRef = React.useRef();
+    const blogRef = React.useRef();
+
+    const handleScrollDown = () => {
+      switch(currentSection) {
+        case sections.INDEX:
+          setCurrentSection(sections.ABOUT);
+          break;
+        case sections.ABOUT:
+          setCurrentSection(sections.BLOG);
+          break;
+      }
+    }
+
+    const handleScrollUp = () => {
+      switch(currentSection) {
+        case sections.ABOUT:
+          setCurrentSection(sections.INDEX);
+          break;
+        case sections.BLOG:
+          setCurrentSection(sections.ABOUT);
+          break;
+      }
+    }
+
+    React.useEffect(() => {
+      const onScroll = throttle((event) => {
+        console.log(currentScrollPos, window.pageYOffset);
+        const newPos = window.pageYOffset;
+        if(newPos > currentScrollPos) {
+          handleScrollDown();
+        } else {
+          handleScrollUp();
+        }
+        setCurrentScrollPos(window.pageYOffset);
+      }, 1000) 
+      document.addEventListener('scroll', onScroll);
+
+      return () => {document.removeEventListener('scroll', onScroll);}
+    }, [currentSection]);
+
+    React.useEffect(() => {
+      const scrollToNextSection = (sectRef) => {
+        if(sectRef && sectRef.current) {
+          sectRef.current.scrollIntoView();
+        }
+      }
+      switch(currentSection) {
+        case sections.INDEX:
+          scrollToNextSection(indexRef);
+          break;
+        case sections.ABOUT:
+          scrollToNextSection(aboutRef);
+          break;
+        case sections.BLOG:
+          scrollToNextSection(blogRef);
+          break;
+      }
+    }, [currentSection]);
+
+    
+
     const {allMdx: {
         nodes
         }
@@ -47,7 +120,9 @@ const IndexPage = ({ data}) => {
 
   return (
   (       <PageTemplate className="flex flex-col items-center justify-center">
-            <div className="flex md:flex-row flex-col-reverse sm:flex-col justify-center items-center px-8 h-screen">
+            <div ref={indexRef} 
+                 className="flex md:flex-row flex-col-reverse sm:flex-col justify-center items-center px-8 h-screen"
+            >
               <div className="text-white p-4 w-3/4 text-leftc fade-in-text">
                 <h1 className="text-white text-6xl font-thin pb-4 font-bold">Hi There</h1>
                 <p className="text-2xl">
@@ -60,10 +135,10 @@ const IndexPage = ({ data}) => {
                 </p>
               </div>
             </div>
-            <div className="h-screen">
+            <div ref={aboutRef} className="h-screen">
               <About/>
             </div>
-            <div className="h-screen">
+            <div ref={blogRef} className="h-screen">
               <h1 className="text-white text-4xl font-thin text-center">What's New</h1>
               <div className="p-4 items-center mt-4 rounded-xl flex-col flex sm:flex-row w-fit">
                 {
