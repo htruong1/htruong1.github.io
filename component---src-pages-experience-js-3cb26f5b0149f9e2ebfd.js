@@ -1,0 +1,1 @@
+(self.webpackChunkblackhole_eats=self.webpackChunkblackhole_eats||[]).push([[622],{222:function(){}}]);
